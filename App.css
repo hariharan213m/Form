@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #fff2d9;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif, "Nunito";
+}
+h1 {
+  text-align: center;
+  margin: 1rem 0;
+}
+.outer-container,
+.title {
+  width: 500px;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+.title{
+  margin-top: 1rem;
+}
+.container > form > div > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding: 0.3rem 16rem 0.3rem 1rem;
+}
+label {
+  margin: 1rem 0 0.5rem 0;
+}
+span {
+  color: red;
+  font-size: 11px;
+  margin-left: 1.5px;
+}
+input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #d3d3d3;
+  margin: 1rem 0 0.5rem 0;
+}
+.btn {
+  text-align: center;
+}
+button {
+  all: unset;
+  background-color: #fff;
+  color: brown;
+  margin-bottom: 1rem;
+  padding: 0.4rem 1.5rem;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+}
