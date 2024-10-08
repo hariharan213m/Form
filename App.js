@@ -1,4 +1,6 @@
 import "./App.css";
+import { Button, Form, Container, Header } from "semantic-ui-react";
+import axios from "axios";
 import { useState } from "react";
 
 function App() {
@@ -12,15 +14,35 @@ function App() {
   const [contactNumber, setContactNumber] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+    const objt = {
+      name,
+      collegeName,
+      department,
+      section,
+      city,
+      state,
+      email,
+      contactNumber,
+    };
+    console.log(objt);
+
+    axios
+      .post(
+        "https://api.sheetbest.com/sheets/fb4554fd-adf8-4f80-802e-38dd3f1cecaf",
+        objt
+      )
+      .then((response) => {
+        console.log(response);
+      });
+
+      alert("You are successfully")
   };
   return (
-    <div className="container">
-      <div className="title">
-        <h1>Registration</h1>
-      </div>
-      <form onSubmit={handleSubmit}>
+    <Container fluid className="container">
+      <Header as="h2" className="title">Registration</Header>
+      <Form onSubmit={handleSubmit}>
         <div className="outer-container">
-          <div>
+          <Form.Field>
             <label htmlFor="name">
               Name<span>*</span>
             </label>
@@ -31,11 +53,11 @@ function App() {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-          </div>
+          </Form.Field>
         </div>
 
         <div className="outer-container">
-          <div>
+          <Form.Field>
             <label htmlFor="collegeName">
               Name of the College<span>*</span>
             </label>
@@ -46,10 +68,10 @@ function App() {
               value={collegeName}
               onChange={(e) => setCollegeName(e.target.value)}
             />
-          </div>
+          </Form.Field>
         </div>
         <div className="outer-container">
-          <div>
+          <Form.Field>
             <label htmlFor="department">
               Department<span>*</span>
             </label>
@@ -60,10 +82,10 @@ function App() {
               value={department}
               onChange={(e) => setDepartment(e.target.value)}
             />
-          </div>
+          </Form.Field>
         </div>
         <div className="outer-container">
-          <div>
+          <Form.Field>
             <label htmlFor="section">
               Section<span>*</span>
             </label>
@@ -74,10 +96,10 @@ function App() {
               value={section}
               onChange={(e) => setSection(e.target.value)}
             />
-          </div>
+          </Form.Field>
         </div>
         <div className="outer-container">
-          <div>
+          <Form.Field>
             <label htmlFor="city">
               City<span>*</span>
             </label>
@@ -88,10 +110,10 @@ function App() {
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
-          </div>
+          </Form.Field>
         </div>
         <div className="outer-container">
-          <div>
+          <Form.Field>
             <label htmlFor="state">
               State<span>*</span>
             </label>
@@ -102,10 +124,10 @@ function App() {
               value={state}
               onChange={(e) => setState(e.target.value)}
             />
-          </div>
+          </Form.Field>
         </div>
         <div className="outer-container">
-          <div>
+          <Form.Field>
             <label htmlFor="email">
               Email<span>*</span>
             </label>
@@ -116,10 +138,10 @@ function App() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
+          </Form.Field>
         </div>
         <div className="outer-container">
-          <div>
+          <Form.Field>
             <label htmlFor="contactNumber">
               Contact Number<span>*</span>
             </label>
@@ -130,13 +152,13 @@ function App() {
               value={contactNumber}
               onChange={(e) => setContactNumber(e.target.value)}
             />
-          </div>
+          </Form.Field>
         </div>
         <div className="btn">
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </div>
-      </form>
-    </div>
+      </Form>
+    </Container>
   );
 }
 
